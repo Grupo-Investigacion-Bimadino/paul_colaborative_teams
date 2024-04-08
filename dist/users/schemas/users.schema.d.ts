@@ -22,17 +22,13 @@
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
-import { Document, Types } from 'mongoose';
-import * as mongoose from 'mongoose';
-import { User } from 'src/users/schemas/users.schema';
-export declare class Team extends Document {
-    _id: mongoose.Types.ObjectId;
-    name: string;
-    logo: string;
-    usuarios: User;
-}
-export declare const TeamSchema: mongoose.Schema<Team, mongoose.Model<Team, any, any, any, Document<unknown, any, Team> & Team & Required<{
+import { Document } from 'mongoose';
+import { Types } from 'mongoose';
+export declare class User extends Document {
     _id: Types.ObjectId;
-}>, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, Team, Document<unknown, {}, mongoose.FlatRecord<Team>> & mongoose.FlatRecord<Team> & Required<{
+}
+export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any, any, Document<unknown, any, User> & User & Required<{
+    _id: Types.ObjectId;
+}>, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, User, Document<unknown, {}, import("mongoose").FlatRecord<User>> & import("mongoose").FlatRecord<User> & Required<{
     _id: Types.ObjectId;
 }>>;
