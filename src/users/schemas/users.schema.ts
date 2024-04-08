@@ -7,5 +7,5 @@ export class User extends Document {
   @Prop({ type: Types.ObjectId })
   _id: Types.ObjectId;
 }
-
+console.log(Prop)
 export const UserSchema = SchemaFactory.createForClass(User);
