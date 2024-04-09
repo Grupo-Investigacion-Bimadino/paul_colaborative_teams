@@ -23,5 +23,6 @@ __decorate([
 exports.User = User = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], User);
+console.log(mongoose_1.Prop);
 exports.UserSchema = mongoose_1.SchemaFactory.createForClass(User);
 //# sourceMappingURL=users.schema.js.map

@@ -19,6 +19,7 @@ export class Team extends Document {
 
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Users', default: null })
     usuarios: User;
+    //usuarios: Types.ObjectId[]; Esto asegura que usuarios sea un array de identificadores de objetos de usuario.
 }
 
 export const TeamSchema = SchemaFactory.createForClass(Team);
