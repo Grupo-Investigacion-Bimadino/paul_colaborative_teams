@@ -27,7 +27,7 @@ exports.AppModule = AppModule = __decorate([
             notifications_module_1.NotificationsModule,
             team_module_1.TeamModule,
             users_module_1.UsersModule,
-            mongoose_1.MongooseModule.forRoot('')
+            mongoose_1.MongooseModule.forRoot('mongodb+srv://emartinezescarpeta:XRkUml05UFhw9DSI@cluster0.fthp8mp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

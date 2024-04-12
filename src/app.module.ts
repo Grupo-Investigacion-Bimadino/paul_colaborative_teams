@@ -15,7 +15,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     NotificationsModule,
     TeamModule,
     UsersModule,
-    MongooseModule.forRoot('') // Agrega la cadena de conexión de MongoDB aquí (p. ej., 'mongodb://localhost/nest'
+    MongooseModule.forRoot('mongodb+srv://emartinezescarpeta:XRkUml05UFhw9DSI@cluster0.fthp8mp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0') 
   ], // Agrega TasksModule aquí
   controllers: [AppController],
   providers: [AppService],
