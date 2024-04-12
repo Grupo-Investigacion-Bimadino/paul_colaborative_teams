@@ -10,11 +10,16 @@ exports.TeamModule = void 0;
 const common_1 = require("@nestjs/common");
 const team_controller_1 = require("./team.controller");
 const team_service_1 = require("./team.service");
+const mongoose_1 = require("@nestjs/mongoose");
+const team_schema_1 = require("./schemas/team.schema");
 let TeamModule = class TeamModule {
 };
 exports.TeamModule = TeamModule;
 exports.TeamModule = TeamModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            mongoose_1.MongooseModule.forFeature([{ name: 'Team', schema: team_schema_1.TeamSchema }]),
+        ],
         controllers: [team_controller_1.TeamController],
         providers: [team_service_1.TeamService]
     })
