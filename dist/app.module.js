@@ -15,12 +15,20 @@ const notes_module_1 = require("./notes/notes.module");
 const notifications_module_1 = require("./notifications/notifications.module");
 const team_module_1 = require("./team/team.module");
 const users_module_1 = require("./users/users.module");
+const mongoose_1 = require("@nestjs/mongoose");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [tasks_module_1.TasksModule, notes_module_1.NotesModule, notifications_module_1.NotificationsModule, team_module_1.TeamModule, users_module_1.UsersModule],
+        imports: [
+            tasks_module_1.TasksModule,
+            notes_module_1.NotesModule,
+            notifications_module_1.NotificationsModule,
+            team_module_1.TeamModule,
+            users_module_1.UsersModule,
+            mongoose_1.MongooseModule.forRoot('')
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
