@@ -25,11 +25,11 @@ let NotesController = class NotesController {
     findAll() {
         return this.notesService.findAll();
     }
-    create(createNotesDto) {
-        return this.notesService.create(createNotesDto);
+    create(createNoteDto) {
+        return this.notesService.create(createNoteDto);
     }
-    update(id, updateNotes) {
-        return this.notesService.update(id, updateNotes);
+    update(id, updateNote) {
+        return this.notesService.update(id, updateNote);
     }
     delete(id) {
         return this.notesService.delete(id);
@@ -40,39 +40,39 @@ __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
 ], NotesController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", void 0)
 ], NotesController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", void 0)
 ], NotesController.prototype, "create", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
 ], NotesController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
 ], NotesController.prototype, "delete", null);
 exports.NotesController = NotesController = __decorate([
-    (0, common_1.Controller)('notess'),
+    (0, common_1.Controller)('notes'),
     __metadata("design:paramtypes", [notes_service_1.NotesService])
 ], NotesController);
 //# sourceMappingURL=notes.controller.js.map
