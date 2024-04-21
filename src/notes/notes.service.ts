@@ -1,27 +1,36 @@
 import { Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { Note } from './schemas/notes.shemas';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class NotesService {
-  private notes: any[] = [];
+  findOne(id: string) {
+    throw new Error('Method not implemented.');
+  }
+  constructor(@InjectModel(Note.name) private noteModel: Model<Note>) {}
 
-  findOne(id: number): string {
-    return `Get notes with id ${id}`;
+  async findAll() {
+    return await this.noteModel.find().exec();
   }
 
-  findAll(): string {
-    return 'Get all notes';
+  async findById(id: string) {
+    return await this.noteModel.findById(id).exec();
   }
 
-  create(createNotesDto): string {
-    this.notes.push(createNotesDto);
-    return 'Notes created successfully';
+  async create(createNoteDto: any) {
+    const createdNote = new this.noteModel(createNoteDto);
+    return await createdNote.save();
   }
 
-  update(id, updateNotes): string {
-    return 'Notes updated successfully';
+  async update(id: string, updateNoteDto: any) {
+    return await this.noteModel.findByIdAndUpdate(id, updateNoteDto, { new: true }).exec();
   }
 
-  delete(id): string {
-    return 'Notes deleted successfully';
+  async delete(id: string) {
+    return await this.noteModel.findByIdAndDelete(id).exec();
   }
 }
+
+
+
