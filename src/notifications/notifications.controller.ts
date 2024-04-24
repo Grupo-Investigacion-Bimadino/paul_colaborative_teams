@@ -1,42 +1,33 @@
-import {
-    Controller,
-    Get,
-    Post,
-    Body,
-    Param,
-    Put,
-    Delete,
-    Patch,
-  } from '@nestjs/common';
-  import { NotificationsService } from './notifications.service';
-  
-  @Controller('notificationss')
-  export class NotificationsController {
-    constructor(private readonly notificationsService: NotificationsService) {}
-    // find one by id findOne(id)
-    @Get(':id')
-    findOne(@Param('id') id: number): string {
-      return this.notificationsService.findOne(id);
-    }
-  
-    @Get()
-    findAll(): string {
-      return this.notificationsService.findAll();
-    }
-  
-    @Post()
-    create(@Body() createNotificationsDto): string {
-      return this.notificationsService.create(createNotificationsDto);
-    }
-  
-    @Patch(':id')
-    update(@Param('id') id: number, @Body() updateNotifications): string {
-      return this.notificationsService.update(id, updateNotifications);
-    }
-  
-    @Delete(':id')
-    delete(@Param('id') id: number): string {
-      return this.notificationsService.delete(id);
-    }
+import { Controller, Get, Post, Body, Param, Put, Delete, Patch } from '@nestjs/common';
+import { NotificationsService } from './notifications.service';
+import { Notification } from './schemas/notifications.schema'; // Importamos el esquema de notificaciones
+
+@Controller('notifications')
+export class NotificationsController {
+  constructor(private readonly notificationService: NotificationsService) {}
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.notificationService.findOne(id);
   }
-  
+
+  @Get()
+  findAll() {
+    return this.notificationService.findAll();
+  }
+
+  @Post()
+  create(@Body() createNotificationDto: Notification) { // Utilizamos el tipo de datos del esquema para validar los datos
+    return this.notificationService.create(createNotificationDto);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateNotification: Notification) {
+    return this.notificationService.update(id, updateNotification);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: string) {
+    return this.notificationService.delete(id);
+  }
+}
