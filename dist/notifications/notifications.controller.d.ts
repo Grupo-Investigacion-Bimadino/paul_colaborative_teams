@@ -1,10 +1,11 @@
 import { NotificationsService } from './notifications.service';
+import { Notification } from './schemas/notifications.schema';
 export declare class NotificationsController {
-    private readonly notificationsService;
-    constructor(notificationsService: NotificationsService);
-    findOne(id: number): string;
-    findAll(): string;
-    create(createNotificationsDto: any): string;
-    update(id: number, updateNotifications: any): string;
-    delete(id: number): string;
+    private readonly notificationService;
+    constructor(notificationService: NotificationsService);
+    findOne(id: string): Promise<Notification>;
+    findAll(): Promise<Notification[]>;
+    create(createNotificationDto: Notification): Promise<Notification>;
+    update(id: string, updateNotification: Notification): Promise<Notification>;
+    delete(id: string): Promise<Notification>;
 }
