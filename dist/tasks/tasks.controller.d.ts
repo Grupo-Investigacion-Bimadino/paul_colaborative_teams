@@ -1,10 +1,11 @@
 import { TasksService } from './tasks.service';
+import { Task } from './schemas/tasks.schema';
 export declare class TasksController {
     private readonly tasksService;
     constructor(tasksService: TasksService);
-    findOne(id: number): string;
-    findAll(): string;
-    create(createTasksDto: any): string;
-    update(id: number, updateTasks: any): string;
-    delete(id: number): string;
+    findOne(id: string): Promise<Task | null>;
+    findAll(): Promise<Task[]>;
+    create(createTasksDto: Task): Promise<Task>;
+    update(id: string, updateTasksDto: Task): Promise<Task | null>;
+    delete(id: string): Promise<Task | null>;
 }
