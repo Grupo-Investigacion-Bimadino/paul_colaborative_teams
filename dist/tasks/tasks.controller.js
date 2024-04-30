@@ -15,23 +15,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TasksController = void 0;
 const common_1 = require("@nestjs/common");
 const tasks_service_1 = require("./tasks.service");
+const tasks_schema_1 = require("./schemas/tasks.schema");
 let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
     }
-    findOne(id) {
+    async findOne(id) {
         return this.tasksService.findOne(id);
     }
-    findAll() {
+    async findAll() {
         return this.tasksService.findAll();
     }
-    create(createTasksDto) {
+    async create(createTasksDto) {
         return this.tasksService.create(createTasksDto);
     }
-    update(id, updateTasks) {
-        return this.tasksService.update(id, updateTasks);
+    async update(id, updateTasksDto) {
+        return this.tasksService.update(id, updateTasksDto);
     }
-    delete(id) {
+    async delete(id) {
         return this.tasksService.delete(id);
     }
 };
@@ -40,39 +41,39 @@ __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [tasks_schema_1.Task]),
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "create", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [String, tasks_schema_1.Task]),
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "delete", null);
 exports.TasksController = TasksController = __decorate([
-    (0, common_1.Controller)('taskss'),
+    (0, common_1.Controller)('tasks'),
     __metadata("design:paramtypes", [tasks_service_1.TasksService])
 ], TasksController);
 //# sourceMappingURL=tasks.controller.js.map
